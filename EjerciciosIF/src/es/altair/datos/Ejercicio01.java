@@ -67,6 +67,47 @@ public class Ejercicio01 {
 		else
 			System.out.println(numX + " es igual a " + numZ);
 		
+		// Pedir dos números y mostrarlos ordenados de mayor a menor
+		System.out.println("Número 1: ");
+		int numero1 = sc.nextInt();
+		
+		System.out.println("Número 2: ");
+		int numero2 = sc.nextInt();
+		
+		if (numero1 > numero2)
+			System.out.println("Orden: " + numero1 + ", " + numero2);
+		else if (numero2 > numero1)
+			System.out.println("Orden: " + numero2 + ", " + numero1);
+		else
+			System.out.println("Da igual el orden. Son Iguales");
+		
+		// Pedir tres números y mostrarlos ordenados de mayor a menor
+		System.out.println("Número 1: ");
+		int n1 = sc.nextInt();
+		
+		System.out.println("Número 2: ");
+		int n2 = sc.nextInt();
+		
+		System.out.println("Número 3: ");
+		int n3 = sc.nextInt();
+		
+		if (n1 > n2 && n1 > n3) {
+			if (n2 > n3)
+				System.out.println("Orden: " + n1 + ", " + n2 + ", " + n3);
+			else
+				System.out.println("Orden: " + n1 + ", " + n3 + ", " + n2);
+		} else if (n2 > n1 && n2 > n3) {
+			if (n1 > n3)
+				System.out.println("Orden: " + n2 + ", " + n1 + ", " + n3);
+			else
+				System.out.println("Orden: " + n2 + ", " + n3 + ", " + n1);
+		} else if (n3 > n1 && n3 > n2) {
+			if (n1 > n2)
+				System.out.println("Orden: " + n3 + ", " + n1 + ", " + n2);
+			else
+				System.out.println("Orden: " + n3 + ", " + n2 + ", " + n1);
+		}
+		
 		sc.close();
 	}
 }
