@@ -24,41 +24,51 @@ public class Ejercicio03 {
 		do {
 			System.out.println("Mes: ");
 			mes = sc.nextInt();
+			if (mes < 1 || mes > 12) 
+				System.out.println("Error Mes");
 		} while (mes < 1 || mes > 12);
-		
-		System.out.println("Día: ");
-		int dia = sc.nextInt();
 		
 		// variable que me indique si la fecha es correcta
 		boolean fechaCorrecta = false;
+		int dia;
 		
-		switch (mes) {
-		case 2:
-			if (dia >= 1 && dia <=29 && esBisiesto)
-				fechaCorrecta = true;
-			else if(dia >=1 && dia <= 28 && !esBisiesto)
-				fechaCorrecta = true;
-			break;
-		case 1:
-		case 3:
-		case 5:
-		case 7:
-		case 8:
-		case 10:
-		case 12:
+		do {
+			System.out.println("Día: ");
+			dia = sc.nextInt();
 			
-			break;
-		case 4:
-		case 6:
-		case 9:
-		case 11:
-			
-			break;
-		default:
-			break;
-		}
+			switch (mes) {
+			case 2:
+				if (dia >= 1 && dia <= 29 && esBisiesto)
+					fechaCorrecta = true;
+				else if (dia >= 1 && dia <= 28 && !esBisiesto)
+					fechaCorrecta = true;
+				break;
+			case 1:
+			case 3:
+			case 5:
+			case 7:
+			case 8:
+			case 10:
+			case 12:
+				if (dia >= 1 && dia <= 31)
+					fechaCorrecta = true;
+				break;
+			case 4:
+			case 6:
+			case 9:
+			case 11:
+				if (dia >= 1 && dia <= 30)
+					fechaCorrecta = true;
+				break;
+			default:
+				break;
+			}
+		} while (!fechaCorrecta);
 		
-		
+		if (fechaCorrecta)
+			System.out.println("Fecha Correcta: " + dia + "/" + mes + "/" + anyo);
+		else
+			System.out.println("Fecha Incorrecta: " + dia + "/" + mes + "/" + anyo);
 		
 		sc.close();
 	}
