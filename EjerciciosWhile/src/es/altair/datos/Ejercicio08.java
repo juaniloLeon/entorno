@@ -1,12 +1,26 @@
 package es.altair.datos;
 
+import java.util.Scanner;
+
 public class Ejercicio08 {
 
 	// Pida al usuario n números y muéstrelos ordenados
 	
+	private static Scanner sc = new Scanner(System.in);
+	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		int cantidad = 0;
+		do {
+			System.out.println("Introduzca Tamaño: ");
+			cantidad = sc.nextInt();
+		} while (cantidad < 0);
+		
+		
+		
+		
+		
+		
+		sc.close();
 	}
 
 }
