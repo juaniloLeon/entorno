@@ -1,6 +1,5 @@
 package datos;
 
-import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -9,52 +8,41 @@ public class Ejercicio06 {
 	// Crear una tabla de n elementos. Pedir al usuario un valor entre 0 y n-1.
 	// Eliminar el valor de esa posición y desplazar todos los elementos para no
 	// dejar el hueco vacío
-	
+
 	private static Scanner sc = new Scanner(System.in);
-	
-	private static int [] elementos;
-
+	private static Random rnd =new Random();
 	public static void main(String[] args) {
-		int nelementos = 0;
-		do {
-			System.out.println("Nº Elementos: ");
-			nelementos = sc.nextInt();
-		} while (nelementos <= 0);
+
+		System.out.print("Introduzca numero de elementos: ");
+		int tam=sc.nextInt();
+		int[] tabla = new int[tam];
+		inicializarTabla(tabla);
+		mostrarTabla(tabla);
+		System.out.print("Introduzca elemento a eliminar [max:"+(tam-1)+"]: ");
+		int elimina=sc.nextInt();
+		eliminar(elimina, tabla);
+		mostrarTabla(tabla);
 		
-		elementos = new int[nelementos];
-		
-		int posicion = 0;
-		do {
-			System.out.println("Posición: ");
-			posicion = sc.nextInt();
-		} while (posicion < 0 || posicion >= nelementos);
-		
-		rellenarTabla();
-		
-		mostrarTabla();
-		
-		eliminarPosicionYDesplazar(posicion);
-		
-		mostrarTabla();
-		
-		sc.close();
+	}
+	
+	private static void eliminar(int elimina, int[] tabla) {
+		for (int i = elimina; i < tabla.length-1; i++) 			
+			tabla[i]=tabla[i+1];
+	
+		tabla[tabla.length-1]=0;
 	}
 
-	private static void eliminarPosicionYDesplazar(int posicion) {
-		for (int i = posicion; i < elementos.length - 1; i++) {
-			elementos[i] = elementos[i+1];
+	private static void mostrarTabla(int[] numeros) {
+		for (int i = 0; i < numeros.length; i++)
+			System.out.println(i+") "+numeros[i]);
+		
+	}
+
+	private static void inicializarTabla(int[] numeros) {
+		for (int i = 0; i < numeros.length; i++) {
+			numeros[i] = rnd.nextInt(50);
 		}
-		elementos[elementos.length - 1] = 0;
-	}
 
-	private static void mostrarTabla() {
-		System.out.println(Arrays.toString(elementos));
-	}
-
-	private static void rellenarTabla() {
-		for (int i = 0; i < elementos.length; i++) {
-			elementos[i] = new Random().nextInt(50) + 1;
-		}
 	}
 
 }
