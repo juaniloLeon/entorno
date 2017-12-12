@@ -50,16 +50,16 @@ public class Ejercicio07 {
 			e2 += clase[i][1];
 			e3 += clase[i][2];
 		}
-		System.out.printf("M:  %.2f| %.2f| %.2f|", e1 / clase.length, e2 /  clase.length, e3 / clase.length);
+		System.out.printf("Me:  %.2f| %.2f| %.2f|", e1 / clase.length, e2 /  clase.length, e3 / clase.length);
 
 	}
 
 	private static void imprimeClase(double[][] clase) {
-		System.out.println("ID)  E1 |  E2 |  E3 |");
+		System.out.println("ID)   E1 |  E2 |  E3 |");
 
 		for (int i = 0; i < clase.length; i++) {
 
-			System.out.print((i+1) + ") ");
+			System.out.printf("%2d) ",(i+1));
 			for (int j = 0; j < (clase[i].length); j++)
 				System.out.printf(" %.2f|", clase[i][j]);
 			System.out.println();
