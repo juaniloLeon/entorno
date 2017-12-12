@@ -7,6 +7,7 @@ public class Ejercicio08 {
 
 	// Cree una tabla de n elementos. Muestre la tabla ordenada
 
+	
 	private static Scanner sc = new Scanner(System.in);
 	private static Random rnd = new Random();
 
